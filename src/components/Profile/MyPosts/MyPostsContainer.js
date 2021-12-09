@@ -11,7 +11,7 @@ let mapStateToProps = (state) => {
     }
 }
 
-let variable = 2
+let variable = 6
 
 
 const MyPostsContainer = connect(mapStateToProps, {addPost,changeTextArea})(MyPosts)
