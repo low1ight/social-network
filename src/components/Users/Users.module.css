@@ -1,0 +1,15 @@
+.usersContent,.usersContainer {
+    height: 100%;
+}
+
+.usersContainer {
+    display: grid;
+    grid-template: auto / repeat(auto-fit,minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+.preloader {
+    display: flex;
+    padding-top: 200px;
+    justify-content: center;
+    align-items: center;
+}

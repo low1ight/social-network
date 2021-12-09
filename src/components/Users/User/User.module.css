@@ -1,0 +1,51 @@
+.container {
+    display: grid;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 95%;
+    grid-template-rows: 90%;
+    justify-content: center;
+    align-content: center;
+    background: #182533;
+
+}
+
+.content {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: 'userPhoto userName userName'
+                         'userPhoto buttons buttons';
+    grid-template-columns: 100px 1fr;
+}
+
+
+.img {
+    grid-area: userPhoto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img img{
+    width: 70%;
+    height: 70%;
+    background-color: #17212B;
+
+}
+.userName {
+    grid-area: userName;
+    color: black;
+}
+.buttons {
+    grid-area: buttons;
+    display: flex;
+    justify-content: space-around;
+
+}
+.buttons button {
+    padding: 0;
+    width: 40%;
+    height: 70%;
+    text-align: center;
+    vertical-align: center;
+}

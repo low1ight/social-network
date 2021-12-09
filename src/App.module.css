@@ -1,0 +1,24 @@
+.app {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas: "header header header"
+                         "content content content";
+
+
+}
+
+
+
+.contentArea {
+    grid-area: content;
+    padding: 20px 0 0 0;
+}
+
+.app nav {
+    grid-area: navigation;
+}
+.headerArea {
+    grid-area: header;
+    /*background: #3C3F41;*/
+}
