@@ -1,5 +1,5 @@
 
-import {addPostActionCreator, changeTextAreaActionCreator} from "../../../redux/profile-reducer";
+import {addPost, changeTextArea} from "../../../redux/profile-reducer";
 import MyPosts from "./MyPosts";
 import {connect} from "react-redux";
 
@@ -23,6 +23,7 @@ let mapStateToProps = (state) => {
     }
 }
 
-const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts)
+
+const MyPostsContainer = connect(mapStateToProps, {addPost,changeTextArea})(MyPosts)
 
 export default MyPostsContainer
