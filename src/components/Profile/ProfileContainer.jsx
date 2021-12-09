@@ -3,6 +3,7 @@ import Profile from "./Profile";
 import {addPost, changeTextArea, getUserProfile} from "../../redux/profile-reducer";
 import React from 'react'
 import {withRouter} from "react-router-dom";
+import {compose} from "redux";
 
 
 class ProfileContainer extends React.Component {
@@ -28,6 +29,4 @@ let mapStateToProps = (state) => {
     }
 }
 
-let withUrlDataProfileContainer = withRouter(ProfileContainer)
-
-export default connect(mapStateToProps,{getUserProfile,changeTextArea,addPost})(withUrlDataProfileContainer)
+export default compose(withRouter,connect(mapStateToProps,{getUserProfile,changeTextArea,addPost}))(ProfileContainer)

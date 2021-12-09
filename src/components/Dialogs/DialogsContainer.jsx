@@ -1,6 +1,7 @@
 import {addMessage, changeMessageTextArea} from "../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
+import {compose} from "redux";
 
 
 
@@ -13,6 +14,4 @@ let mapStateToProps = (state) => {
     }
 }
 
-
-const DialogsContainer = connect(mapStateToProps,{changeMessageTextArea,addMessage})(Dialogs)
-export default DialogsContainer
+export default compose(connect(mapStateToProps,{changeMessageTextArea,addMessage}))(Dialogs)

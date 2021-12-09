@@ -7,6 +7,7 @@ import {
 } from "../../redux/users-reducer";
 import React from "react";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 
 
@@ -77,8 +78,8 @@ let mapStateTorPops = (state) => {
    }
 }
 
+export default compose (
+    connect(mapStateTorPops,{followUser,unfollowUser,toggleUsersFollowingInProgress,getUsers}),
+    withAuthRedirect
+)(UsersAPI)
 
-let UsersWithRedirect = withAuthRedirect(UsersAPI)
-let UsersContainer = connect(mapStateTorPops,{followUser,unfollowUser,toggleUsersFollowingInProgress,getUsers})(UsersWithRedirect)
-
-export default UsersContainer;
