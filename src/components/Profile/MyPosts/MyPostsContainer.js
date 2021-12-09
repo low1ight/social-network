@@ -4,24 +4,14 @@ import MyPosts from "./MyPosts";
 import {connect} from "react-redux";
 
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        changeTextArea: (e) => {
-            dispatch(changeTextAreaActionCreator(e.target.value))
-        },
-        addPost: () => {
-            dispatch(addPostActionCreator())
-        }
-
-
-    }
-}
 
 let mapStateToProps = (state) => {
     return {
 
     }
 }
+
+let variable = 1
 
 
 const MyPostsContainer = connect(mapStateToProps, {addPost,changeTextArea})(MyPosts)
