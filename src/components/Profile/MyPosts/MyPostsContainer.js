@@ -12,6 +12,8 @@ let mapStateToProps = () => {
 }
 
 
+
+
 const MyPostsContainer = connect(mapStateToProps, {addPost,changeTextArea})(MyPosts)
 
 export default MyPostsContainer
