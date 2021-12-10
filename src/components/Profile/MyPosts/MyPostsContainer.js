@@ -5,13 +5,13 @@ import {connect} from "react-redux";
 
 
 
-let mapStateToProps = (state) => {
+let mapStateToProps = () => {
     return {
 
     }
 }
 
-let variable = 6
+
 
 
 const MyPostsContainer = connect(mapStateToProps, {addPost,changeTextArea})(MyPosts)

@@ -16,8 +16,7 @@ const App = () => {
                 </div>
                 <div className={classes.contentArea}>
                     <div className="container">
-                        <Route path='/profile/:userId' render={() => <ProfileContainer/>}/>
-                        {/*<Redirect from='/profile/' to='/profile/333' />*/}
+                        <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
                         <Route path='/dialogs' render={() => <DialogsContainer/>}/>
                         <Route path='/users' render={() => <UsersContainer/>}/>
                         <Route path='/login' render={() => <Login />} />

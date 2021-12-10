@@ -8,7 +8,7 @@ const Header = (props) => {
     return (
         <div className={classes.header}>
             <div className="container">
-                {props.authUserData.isAuth ? <HeaderWithAuth/> : <div>nonono</div>}
+                {props.authUserData.isAuth ? <HeaderWithAuth authUserData={props.authUserData}/> : <div>no auth</div>}
             </div>
         </div>
     );
@@ -17,12 +17,13 @@ const Header = (props) => {
 export default Header
 
 function HeaderWithAuth (props) {
+    debugger
     return (
         <div className={classes.headerContent}>
             <IconContext.Provider value={{ color: "#768C9E", size: "2em"}}>
                 <FiAlignJustify/>
             </IconContext.Provider>
-            <div><NavLink to={`/profile/`}>Profile</NavLink></div>
+            <div><NavLink to={`/profile/${props.authUserData.id}`}>Profile</NavLink></div>
             <div><NavLink to='/dialogs'>Dialogs</NavLink></div>
             <div><NavLink to='/users'>Users</NavLink></div>
         </div>
