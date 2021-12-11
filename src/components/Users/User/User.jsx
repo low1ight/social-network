@@ -7,7 +7,7 @@ function User(props) {
 
 
     return (
-        <div className={classes.container}>
+        <div className={`${classes.container} panel`}>
 
             <div className={classes.content}>
                 <div className={classes.img}>
