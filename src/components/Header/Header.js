@@ -24,7 +24,6 @@ function HeaderWithAuth (props) {
                 <FiAlignJustify/>
             </IconContext.Provider>
             <div><NavLink to={`/profile/${props.authUserData.id}`}>Profile</NavLink></div>
-            <div><NavLink to='/dialogs'>Dialogs</NavLink></div>
             <div><NavLink to='/users'>Users</NavLink></div>
         </div>
     )
