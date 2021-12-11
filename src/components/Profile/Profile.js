@@ -1,17 +1,20 @@
 
-import MyProfile from "./MyProfile/MyProfile";
+import ProfileHeader from "./ProfileHeader/ProfileHeader";
+import ProfileNav from "./ProfileNav/ProfileNav";
 
 
 
 function Profile(props) {
 
+
+
     return (
         <div className={props.gridArea}>
-                <MyProfile {...props.profilePage.userData} />
-                {/*<MyPosts posts={props.profilePage.postsData}*/}
-                {/*         textarea={props.profilePage.textarea}*/}
-                {/*         addPost={props.addPost}*/}
-                {/*         changeTextArea={props.changeTextArea}/>*/}
+            <ProfileHeader {...props.profilePage.userData} />
+            <ProfileNav activeNav={props.currentActiveNav} setNavPage={props.setNavPage}/>
+            <div>{props.currentActiveNav}</div>
+
+
         </div>
     );
 }

@@ -1,8 +1,8 @@
-import classes from './MyProfile.module.css'
+import classes from './ProfileHeader.module.css'
 import defaultUserImg from '../../../assets/images/default-user-img.png'
 
 
-function MyProfile(props) {
+function ProfileHeader(props) {
 
     return (
         <div className={`${classes.container} ${classes.profileGradient}`}>
@@ -17,4 +17,4 @@ function MyProfile(props) {
     )
 }
 
-export default MyProfile
+export default ProfileHeader

@@ -8,9 +8,14 @@ import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 
 class ProfileContainer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = ({activeNavPage:'About me'})
+    }
 
     componentDidMount() {
         this.props.getUserProfile(this.props.match.params.userId)
+
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(this.props.match.params.userId !== prevProps.match.params.userId) {
@@ -18,12 +23,17 @@ class ProfileContainer extends React.Component {
         }
     }
 
+    setActiveNavPage = (pageName) => {
+        this.setState({activeNavPage:pageName})
+        console.log(this.state)
+    }
+
     render() {
 
 
         if(!this.props.match.params.userId) return <Redirect to={`/profile/${this.props.state.auth.userId}`} />
         return (
-            <Profile {...this.props}/>
+            <Profile currentActiveNav={this.state.activeNavPage} setNavPage={this.setActiveNavPage} {...this.props}/>
         )
     }
 }

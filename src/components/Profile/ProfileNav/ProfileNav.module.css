@@ -1,0 +1,52 @@
+.content,.nav {
+    display: flex;
+    flex-direction: row;
+}
+.contentWrapper {
+    height: 60px;
+    background-color: #182533;
+}
+
+.content {
+    height: 100%;
+    justify-content: space-between;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.nav {
+    width: 50%;
+ align-items: center;
+}
+
+.nav div {
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    padding: 0 10px;
+    font-weight: 600;
+    font-size: 16px;
+
+}
+
+.nav div:hover {
+    color: #2B5278;
+    transition: 0.2s linear;
+    cursor: pointer;
+}
+
+.rightPanel {
+    display: flex;
+    width: 50%;
+    align-items: center;
+   justify-content: flex-end;
+}
+
+.rightPanel button {
+    height: 80%;
+    margin:0 0 0 10px;
+}
+.active {
+    color: #2B5278;
+}

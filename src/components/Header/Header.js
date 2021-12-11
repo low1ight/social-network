@@ -17,7 +17,7 @@ const Header = (props) => {
 export default Header
 
 function HeaderWithAuth (props) {
-    debugger
+
     return (
         <div className={classes.headerContent}>
             <IconContext.Provider value={{ color: "#768C9E", size: "2em"}}>
