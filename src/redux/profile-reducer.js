@@ -1,41 +1,28 @@
 import {profileAPI} from "../api/api";
 
-const CHANGE_TEXT_AREA = 'CHANGE-TEXT-AREA'
-const ADD_POST = 'ADD-POST'
-const SET_USER_PROFILE_DATA = 'SET_USER_PROFILE_DATA'
-
+const SET_USER_PROFILE_DATA = 'SET-USER-PROFILE-DATA'
+const SET_PROFILE_STATUS = 'SET-PROFILE-STATUS'
 
 let initialState = {
     userData: null,
-    postsData: [
-        {message: "Hi, how are you?", id: "1"},
-        {message: "It's my first post", id: "2"}
-    ],
-    textarea: ''
+    userProfileStatus: null,
+
 }
 
 const profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case CHANGE_TEXT_AREA:
-            debugger
-            return {
-                ...state,
-                textarea: action.newText
-            }
 
-        case ADD_POST:
-            return {
-                ...state,
-                postsData: [...state.postsData,
-                    {message: state.textarea,id: `${state.postsData.length + 1}`}],
-                textarea: ''
-                }
         case SET_USER_PROFILE_DATA:
-            debugger
+
             return {
                 ...state,
                 userData: action.userData
+            }
+        case SET_PROFILE_STATUS:
+            return {
+                ...state,
+                userProfileStatus:action.status
             }
         default:
             return state
@@ -44,10 +31,18 @@ const profileReducer = (state = initialState, action) => {
 
 export default profileReducer;
 export const setUserProfileData = (userData) => ({type:SET_USER_PROFILE_DATA, userData})
-export const changeTextArea = (newText) => ({type: CHANGE_TEXT_AREA, newText: newText});
-export const addPost = () => ({type: ADD_POST});
+export const setUserProfileStatus = (status) => ({type: SET_PROFILE_STATUS,status })
+
 
 
 export const getUserProfile = (id) => (dispatch) => {
+    profileAPI.getProfileStatus(id).then(data => dispatch(setUserProfileStatus(data)))
     profileAPI.getProfile(id).then(data => dispatch(setUserProfileData(data)))
+
+}
+export const setNewUserProfileStatus = (status) => (dispatch) => {
+    profileAPI.setProfileStatus(status).then(data => {
+        if(data.resultCode === 1) return
+        dispatch(setUserProfileStatus(status));
+    })
 }

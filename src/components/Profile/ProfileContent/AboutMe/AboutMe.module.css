@@ -1,0 +1,24 @@
+.content {
+    display: grid;
+    grid-template-areas: "social biography biography"
+                         "...... aboutWork aboutWork";
+    grid-gap: 20px;
+    grid-template-rows: minmax(100px, max-content) minmax(100px, max-content);
+    grid-template-columns: 1fr 3fr;
+    font-size: 40px;
+}
+
+.content div {
+    background-color: #182533;
+}
+.social {
+    grid-area: social;
+}
+
+.biography {
+    grid-area: biography;
+}
+
+.aboutWork {
+    grid-area: aboutWork;
+}

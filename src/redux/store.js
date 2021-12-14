@@ -3,6 +3,7 @@ import profileReducer from "./profile-reducer";
 import {usersReducer} from "./users-reducer";
 import {authReducer} from "./auth-reducer";
 import thunk from 'redux-thunk'
+import {composeWithDevTools} from "redux-devtools-extension";
 
 
 let reducers = combineReducers({
@@ -11,6 +12,6 @@ let reducers = combineReducers({
     auth: authReducer
 })
 
-let store = createStore(reducers,applyMiddleware(thunk),)
+let store = createStore(reducers,composeWithDevTools(applyMiddleware(thunk)))
 
 export default store

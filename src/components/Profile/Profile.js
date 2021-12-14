@@ -1,20 +1,22 @@
 
 import ProfileHeader from "./ProfileHeader/ProfileHeader";
 import ProfileNav from "./ProfileNav/ProfileNav";
+import ProfileContent from "./ProfileContent/ProfileContent";
+
+
 
 
 
 function Profile(props) {
 
 
-
+    if(!props.profilePage.userData || props.profilePage.userProfileStatus == null ) return (<div>no</div>)
     return (
         <div className={props.gridArea}>
-            <ProfileHeader {...props.profilePage.userData} />
+            <ProfileHeader setNewUserProfileStatus={props.setNewUserProfileStatus} profileStatus={props.profilePage.userProfileStatus} {...props.profilePage.userData} />
             <ProfileNav activeNav={props.currentActiveNav} setNavPage={props.setNavPage}/>
-            <div>{props.currentActiveNav}</div>
-
-
+            {/*<div>{props.currentActiveNav}</div>*/}
+            <ProfileContent />
         </div>
     );
 }

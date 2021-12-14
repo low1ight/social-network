@@ -32,7 +32,7 @@
     background-color: #17212B;
 
 }
-.userName {
+.userInfo {
     grid-area: userName;
     color: black;
 }
