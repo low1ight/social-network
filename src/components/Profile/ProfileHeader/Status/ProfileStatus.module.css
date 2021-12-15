@@ -1,7 +1,7 @@
 .inputWrapper {
     background-color: #334257;
     height: 35px;
-    width: 50%;
+    min-width: 400px;
     font-size: 18px;
     border-radius: 5px;
     color: white;

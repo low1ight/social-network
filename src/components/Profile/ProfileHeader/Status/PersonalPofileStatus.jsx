@@ -4,7 +4,7 @@ import classes from './ProfileStatus.module.css'
 import Preloader from "../../../common/Preloader";
 import {Status} from "./Status";
 
-export function PersonalPofileStatus(props) {
+export function PersonalProfileStatus(props) {
     const [editMode, setEditMode] = useState(false)
 
     const ref = useRef();

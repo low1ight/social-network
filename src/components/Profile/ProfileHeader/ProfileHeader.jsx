@@ -1,6 +1,6 @@
 import classes from './ProfileHeader.module.css'
 import defaultUserImg from '../../../assets/images/default-user-img.png'
-import {PersonalPofileStatus} from "./Status/PersonalPofileStatus";
+import {PersonalProfileStatus} from "./Status/PersonalPofileStatus";
 import {Status} from "./Status/Status";
 
 
@@ -15,8 +15,8 @@ function ProfileHeader(props) {
                         <span className={classes.userName}>{props.fullName ? props.fullName : 'There is no user name'}</span>
                         <div className={classes.userStatus}>
                             {props.isPersonalPage ?
-                                <PersonalPofileStatus setNewUserProfileStatus={props.setNewUserProfileStatus}
-                                                      profileStatus={props.profileStatus}/>
+                                <PersonalProfileStatus setNewUserProfileStatus={props.setNewUserProfileStatus}
+                                                       profileStatus={props.profileStatus}/>
                                 :<Status profileStatus={props.profileStatus} />}
                         </div>
                     </div>
