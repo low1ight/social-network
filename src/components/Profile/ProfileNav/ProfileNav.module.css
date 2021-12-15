@@ -44,7 +44,8 @@
 }
 
 .rightPanel button {
-    height: 80%;
+    height: 40px;
+    width: 80px;
     margin:0 0 0 10px;
 }
 .active {

@@ -15,7 +15,7 @@ function Profile(props) {
         <div className={props.gridArea}>
             <ProfileHeader setNewUserProfileStatus={props.setNewUserProfileStatus} profileStatus={props.profilePage.userProfileStatus} {...props.profilePage.userData} />
             <ProfileNav activeNav={props.currentActiveNav} setNavPage={props.setNavPage}/>
-            {/*<div>{props.currentActiveNav}</div>*/}
+            <div>{props.currentActiveNav}</div>
             <ProfileContent />
         </div>
     );

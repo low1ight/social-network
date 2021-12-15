@@ -71,11 +71,11 @@
 
 }
 .inputWrapper button {
+    font-size: 16px;
     width: 60px;
     text-align: center;
     vertical-align: middle;
     height: 30px;
-    background-color: #67B8F7;
     border-radius: 5px;
     line-height: 30px;
     cursor: pointer;

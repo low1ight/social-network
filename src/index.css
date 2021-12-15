@@ -45,22 +45,22 @@ body {
   margin: 0 auto;
   height: 100%;
 }
-/*button {*/
-/*  background-color: #17212B;*/
-/*  border: none;*/
-/*  color: white;*/
-/*  padding: 15px 32px;*/
-/*  text-align: center;*/
-/*  text-decoration: none;*/
-/*  display: inline-block;*/
-/*  font-size: 16px;*/
-/*}*/
-/*button:hover {*/
-/*  background-color: #1C2835;*/
-/*}*/
-/*button:disabled {*/
-/*  background-color: #1E2B39;*/
-/*}*/
+button {
+  background-color: #67B8F7;
+  border: none;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+}
+button:hover {
+  background-color: #87c7f9;
+}
+button:disabled {
+  background-color: #a5d5fa;
+  cursor: not-allowed;
+}
+
 textarea {
   width: 35%;
   height: 50px;

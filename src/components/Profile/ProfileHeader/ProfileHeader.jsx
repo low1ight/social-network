@@ -2,7 +2,7 @@ import classes from './ProfileHeader.module.css'
 import defaultUserImg from '../../../assets/images/default-user-img.png'
 import {useFormik} from 'formik'
 import {useEffect, useRef, useState} from "react";
-
+import Preloader from "../../common/Preloader";
 
 
 
@@ -90,9 +90,11 @@ function StatusForm (props) {
                            type="text"
                            value={formik.values.profileStatus}
                            onChange={formik.handleChange}/>
-                    <button type='submit'>
+                    {formik.isSubmitting ?
+                        <Preloader preloaderType='gear' weight='40px' height='40px' /> :
+                        <button type='submit'>
                         save
-                    </button>
+                    </button>}
                 </form>
 
                 :
