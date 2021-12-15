@@ -25,7 +25,6 @@ class ProfileContainer extends React.Component {
 
     setActiveNavPage = (pageName) => {
         this.setState({activeNavPage:pageName})
-        console.log(this.state)
     }
 
     render() {

@@ -1,10 +1,12 @@
 import AboutMe from "./AboutMe/AboutMe";
 import classes from './ProfileContent.module.css'
 
-function ProfileContent () {
+function ProfileContent (props) {
+
     return (
         <div className={classes.content}>
-            <AboutMe />
+            {props.activePage === 'About me' && <AboutMe />}
+            {props.activePage === 'Edit' && <div>edit</div>}
         </div>
     )
 }
