@@ -47,36 +47,4 @@
     padding: 5px;
     width: 200px;
     height: 200px;
-
-}
-.inputWrapper {
-    background-color: #334257;
-    height: 35px;
-    width: 50%;
-    font-size: 18px;
-    border-radius: 5px;
-    color: white;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-}
-.inputWrapper > input,.inputWrapper button {
-    margin: 0 5px 0 5px;
-}
-.inputWrapper > input {
-    background-color: #334257;
-    flex-grow: 3;
-    border: none;
-    font-size: 18px;
-
-}
-.inputWrapper button {
-    font-size: 16px;
-    width: 60px;
-    text-align: center;
-    vertical-align: middle;
-    height: 30px;
-    border-radius: 5px;
-    line-height: 30px;
-    cursor: pointer;
 }

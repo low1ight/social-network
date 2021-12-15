@@ -40,7 +40,8 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        profilePage: state.profilePage
+        profilePage: state.profilePage,
+        authUserId: state.auth.id
 
     }
 }
