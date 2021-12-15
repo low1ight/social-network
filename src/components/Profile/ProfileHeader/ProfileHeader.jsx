@@ -15,7 +15,7 @@ function ProfileHeader(props) {
                 <div className={classes.content}>
                     <div className={classes.img}><img width='200px' height='200px' src={defaultUserImg} alt="noPhoto"/></div>
                     <div className={classes.userInfo}>
-                        <span>{props.fullName ? props.fullName : 'There is no user name'}</span>
+                        <span className={classes.userName}>{props.fullName ? props.fullName : 'There is no user name'}</span>
                         <StatusForm setNewUserProfileStatus={props.setNewUserProfileStatus} profileStatus={props.profileStatus}/>
                     </div>
                 </div>
@@ -36,7 +36,7 @@ function StatusForm (props) {
 
     const stopEditing = () => {
         setEditMode(false)
-        formik.handleReset({})
+        if(props.profileStatus !== formik.values.profileStatus) formik.handleReset({})
     }
     function useOnClickOutside(ref, handler) {
         useEffect(
@@ -63,17 +63,28 @@ function StatusForm (props) {
             profileStatus: props.profileStatus
         },
         onSubmit: (values,actions) => {
-           // props.setNewUserProfileStatus(values.profileStatus)
-                   actions.setSubmitting(false)
-                   actions.resetForm()
+            props.setNewUserProfileStatus(values.profileStatus)
+                .then(() => {
+                    console.log('asd')
+                    actions.setSubmitting(false)
+                    formik.resetForm({values:{ profileStatus:values.profileStatus}})
+                    stopEditing()
+                })
+
         }
 
     });
 
+    // useEffect(() => {
+    //
+    //
+    //
+    // }, [props.profileStatus]);
+
     return (
-        <div>
+        <div className={classes.userStatus}>
             {editMode ?
-                <form onBlur={() => 'blured'} ref={ref} onSubmit={formik.handleSubmit} className={classes.inputWrapper}>
+                <form ref={ref} onSubmit={formik.handleSubmit} className={classes.inputWrapper}>
                     <input autoFocus
                            id='profileStatus'
                            type="text"

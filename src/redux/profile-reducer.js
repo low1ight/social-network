@@ -22,7 +22,7 @@ const profileReducer = (state = initialState, action) => {
         case SET_PROFILE_STATUS:
             return {
                 ...state,
-                userProfileStatus:action.status
+                userProfileStatus: action.status
             }
         default:
             return state
@@ -30,9 +30,8 @@ const profileReducer = (state = initialState, action) => {
 }
 
 export default profileReducer;
-export const setUserProfileData = (userData) => ({type:SET_USER_PROFILE_DATA, userData})
-export const setUserProfileStatus = (status) => ({type: SET_PROFILE_STATUS,status })
-
+export const setUserProfileData = (userData) => ({type: SET_USER_PROFILE_DATA, userData})
+export const setUserProfileStatus = (status) => ({type: SET_PROFILE_STATUS, status})
 
 
 export const getUserProfile = (id) => (dispatch) => {
@@ -40,9 +39,10 @@ export const getUserProfile = (id) => (dispatch) => {
     profileAPI.getProfile(id).then(data => dispatch(setUserProfileData(data)))
 
 }
-export const setNewUserProfileStatus = (status) => (dispatch) => {
-    profileAPI.setProfileStatus(status).then(data => {
-        if(data.resultCode === 1) return
-        dispatch(setUserProfileStatus(status));
-    })
+
+export const setNewUserProfileStatus = (status) => async (dispatch) => {
+   let response = await profileAPI.setProfileStatus(status)
+    if (response.resultCode === 1) return
+    dispatch(setUserProfileStatus(status));
+    console.log('profile set finished')
 }

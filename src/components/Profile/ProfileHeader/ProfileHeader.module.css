@@ -32,12 +32,13 @@
     padding-top: 15px;
     width: 90%
 }
-.userInfo>span {    /*userName*/
+.userName {    /*userName*/
     font-weight: bold;
     font-size: 23px;
 }
-.userInfo>div {
-    height: 40px;
+.userStatus {
+    height: 45px;
+    width:100%;
 }
 /*img giv*/
 .img {
@@ -50,29 +51,32 @@
 }
 .inputWrapper {
     background-color: #334257;
-    height: 30px;
-    width: 100%;
+    height: 35px;
+    width: 50%;
     font-size: 18px;
     border-radius: 5px;
     color: white;
     display: flex;
-    justify-content: space-around;
+    justify-content: end;
     align-items: center;
+}
+.inputWrapper > input,.inputWrapper button {
+    margin: 0 5px 0 5px;
 }
 .inputWrapper > input {
     background-color: #334257;
-    width: 65%;
+    flex-grow: 3;
     border: none;
     font-size: 18px;
 
 }
 .inputWrapper button {
-    width: 25%;
+    width: 60px;
     text-align: center;
     vertical-align: middle;
-    height: 25px;
+    height: 30px;
     background-color: #67B8F7;
     border-radius: 5px;
-    line-height: 25px;
+    line-height: 30px;
     cursor: pointer;
 }
