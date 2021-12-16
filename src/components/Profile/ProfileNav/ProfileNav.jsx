@@ -1,8 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import classes from './ProfileNav.module.css'
+import {FollowButton} from "../../common/FollowButton";
+
+
 
 
 function ProfileNav(props) {
+
+    let [isFollowing,setIsFollowing] = useState(false)
+
+    const followUnfollowUser = (id,action) => {
+        setIsFollowing(true)
+        props.followUnfollowUser(id,action).then(() => setIsFollowing(false))
+    }
+
 
     const navElems = props.isPersonalPage ? ['About me', 'Edit'] : ['About me']
 
@@ -20,7 +31,7 @@ function ProfileNav(props) {
 
                         <div>
                             <button disabled> Message</button>
-                            <button> Follow</button>
+                            <FollowButton isUserFollowing={isFollowing} id={props.id} followUser={(id) => followUnfollowUser(id,'follow')} followUnfollowUser={(id) => followUnfollowUser(id, 'unfollow')} followed={props.followStatus} />
                         </div>
                     }
 
@@ -37,7 +48,7 @@ const NavElem = (props) => {
     let name = props.elemName
 
     return (
-        <div className={props.activeNav === name && classes.active} onClick={() => props.setNavPage(name)}>
+        <div className={props.activeNav === name ? classes.active : classes.leftElem} onClick={() => props.setNavPage(name)}>
             {name}
         </div>
     )

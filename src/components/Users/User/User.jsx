@@ -1,10 +1,12 @@
 import classes from './User.module.css'
 import userDefaultPhoto from '../../../assets/images/default-user-img.png'
 import {NavLink} from "react-router-dom";
+import {FollowButton} from "../../common/FollowButton";
 
 
 function User(props) {
 
+const isUserFollowing = props.usersFollowingInProgress.some(id => id === props.id)
 
     return (
         <div className={`${classes.container} panel`}>
@@ -17,11 +19,18 @@ function User(props) {
                 </div>
                 <div className={classes.userName}>{props.name || 'no name'}</div>
                 <div className={classes.buttons}>
-                    {props.followed ?
-                        <button disabled={props.usersFollowingInProgress.some(id => id === props.id)} onClick={() => props.unfollowUser(props.id)}>Unfollow</button> :
-                        <button disabled={props.usersFollowingInProgress.some(id => id === props.id)} onClick={() => props.followUser(props.id)}>Follow</button>}
 
-                    <button>Send</button>
+                    <FollowButton
+                        isUserFollowing={isUserFollowing}
+                        id={props.id}
+                        unfollowUser={props.unfollowUser}
+                        followUser={props.followUser}
+                        followed={props.followed}
+                    />
+                    {/*{props.followed ?*/}
+                    {/*    <button disabled={props.usersFollowingInProgress.some(id => id === props.id)} onClick={() => props.unfollowUser(props.id)}>Unfollow</button> :*/}
+                    {/*    <button disabled={props.usersFollowingInProgress.some(id => id === props.id)} onClick={() => props.followUser(props.id)}>Follow</button>}*/}
+                    <button>Messages</button>
                 </div>
             </div>
 
@@ -29,6 +38,7 @@ function User(props) {
 
     )
 }
+
 
 // window.pageYOffset
 //document.body.scrollTop || document.documentElement.scrollTop

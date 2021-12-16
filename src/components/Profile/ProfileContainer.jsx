@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import Profile from "./Profile";
-import {getUserProfile, setNewUserProfileStatus} from "../../redux/profile-reducer";
+import {followUnfollowUser, getUserProfile, setNewUserProfileStatus} from "../../redux/profile-reducer";
 import React from 'react'
 import {Redirect, withRouter} from "react-router-dom";
 import {compose} from "redux";
@@ -32,7 +32,7 @@ class ProfileContainer extends React.Component {
 
         if(!this.props.match.params.userId) return <Redirect to={`/profile/${this.props.state.auth.userId}`} />
         return (
-            <Profile setNewUserProfileStatus={this.props.setNewUserProfileStatus} currentActiveNav={this.state.activeNavPage} setNavPage={this.setActiveNavPage} {...this.props}/>
+            <Profile followUnfollowUser={this.props.followUnfollowUser} setNewUserProfileStatus={this.props.setNewUserProfileStatus} currentActiveNav={this.state.activeNavPage} setNavPage={this.setActiveNavPage} {...this.props}/>
         )
     }
 }
@@ -40,12 +40,11 @@ class ProfileContainer extends React.Component {
 let mapStateToProps = (state) => {
     return {
         profilePage: state.profilePage,
-        authUserId: state.auth.id
-
+        authUserId: state.auth.id,
     }
 }
 
 export default compose(
     withRouter,
     withAuthRedirect,
-    connect(mapStateToProps,{getUserProfile,setNewUserProfileStatus}))(ProfileContainer)
+    connect(mapStateToProps,{getUserProfile,followUnfollowUser,setNewUserProfileStatus}))(ProfileContainer)
