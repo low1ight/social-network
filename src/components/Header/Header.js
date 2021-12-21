@@ -1,14 +1,15 @@
 import {FiAlignJustify} from "react-icons/fi";
 import {IconContext} from "react-icons";
 import classes from './Header.module.css'
-import {NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
+
 
 const Header = (props) => {
 
     return (
         <div className={classes.header}>
             <div className="container">
-                {props.authUserData.isAuth ? <HeaderWithAuth authUserData={props.authUserData}/> : <div>no auth</div>}
+                {props.authUserData.isAuth ? <HeaderWithAuth logOut={props.logOut} authUserData={props.authUserData}/> : <div>no auth</div>}
             </div>
         </div>
     );
@@ -23,8 +24,9 @@ function HeaderWithAuth (props) {
             <IconContext.Provider value={{ color: "#768C9E", size: "2em"}}>
                 <FiAlignJustify/>
             </IconContext.Provider>
-            <div><NavLink to={`/profile/${props.authUserData.id}`}>Profile</NavLink></div>
-            <div><NavLink to='/users'>Users</NavLink></div>
+            <div><Link to={`/profile/${props.authUserData.id}`}>Profile</Link></div>
+            <div><Link to='/users'>Users</Link></div>
+            {/*<div onClick={props.logOut}>logout</div>*/}
         </div>
     )
 }

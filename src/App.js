@@ -1,27 +1,31 @@
 import classes from './App.module.css';
-import {BrowserRouter, Route} from "react-router-dom";
+import {Redirect, Route, Switch} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
+import {ConnectedRouter} from "connected-react-router";
 
-const App = () => {
+const App = ({history}) => {
 
     return (
-        <BrowserRouter>
+        <ConnectedRouter history={history}>
             <div className={classes.app}>
                 <div className={classes.headerArea}>
                     <HeaderContainer/>
                 </div>
                 <div className={classes.contentArea}>
                     <div className="container">
-                        <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
-                        <Route path='/users' render={() => <UsersContainer/>}/>
-                        <Route path='/login' render={() => <Login />} />
+                        <Switch>
+                            <Route path="/profile/:userId?" component={ProfileContainer} />
+                            <Route path='/users' component={UsersContainer}/>
+                            <Route path='/login' component={Login}/>
+                            <Redirect form='*' to='/profile' />
+                        </Switch>
                     </div>
                 </div>
             </div>
-        </BrowserRouter>
+        </ConnectedRouter>
     );
 }
 

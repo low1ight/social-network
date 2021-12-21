@@ -27,4 +27,6 @@ export const followAPI = {
 
 export const authAPI = {
     authMe: () => instance.get('auth/me').then(response => response.data),
+    logOut: () => instance.delete('/auth/login').then(response => response.data),
+    login: (email,password,rememberMe = false) => instance.post('/auth/login',{email,password,rememberMe}).then(response => response.data)
 }

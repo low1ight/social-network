@@ -42,7 +42,8 @@ export const setUserProfileData = (userData) => ({type: SET_USER_PROFILE_DATA, u
 export const setUserProfileStatus = (status) => ({type: SET_PROFILE_STATUS, status})
 export const setUserFollowStatus = (followStatus) => ({type:SET_USER_FOLLOW_STATUS,followStatus})
 
-export const getUserProfile = (id) => (dispatch) => {
+export const getUserProfile = (id) => async (dispatch) => {
+
     profileAPI.getProfileStatus(id).then(data => dispatch(setUserProfileStatus(data)))
     profileAPI.getProfile(id).then(data => dispatch(setUserProfileData(data)))
     followAPI.checkFollowStatus(id).then(data => dispatch(setUserFollowStatus(data)))

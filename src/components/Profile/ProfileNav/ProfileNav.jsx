@@ -31,7 +31,7 @@ function ProfileNav(props) {
 
                         <div>
                             <button disabled> Message</button>
-                            <FollowButton isUserFollowing={isFollowing} id={props.id} followUser={(id) => followUnfollowUser(id,'follow')} followUnfollowUser={(id) => followUnfollowUser(id, 'unfollow')} followed={props.followStatus} />
+                            <FollowButton isUserFollowing={isFollowing} id={props.id} followUser={(id) => followUnfollowUser(id,'follow')} unfollowUser={(id) => followUnfollowUser(id, 'unfollow')} followed={props.followStatus} />
                         </div>
                     }
 

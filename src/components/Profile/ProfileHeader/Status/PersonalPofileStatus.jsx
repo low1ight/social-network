@@ -45,7 +45,6 @@ export function PersonalProfileStatus(props) {
         onSubmit: (values, actions) => {
             props.setNewUserProfileStatus(values.profileStatus)
                 .then(() => {
-                    console.log('asd')
                     actions.setSubmitting(false)
                     stopEditing()
                 })
